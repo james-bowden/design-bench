@@ -829,7 +829,7 @@ class Task(object):
 
         """
 
-        return self.oracle.predict(x_batch, **kwargs)
+        return self.oracle.predict(x_batch, discrete_data=self.is_discrete, **kwargs)
 
     def oracle_to_dataset_x(self, x_batch):
         """Helper function for converting from designs in the format of the

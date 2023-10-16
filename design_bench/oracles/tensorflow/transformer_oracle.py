@@ -323,7 +323,7 @@ class TransformerOracle(TensorflowOracle):
         # return the trained model and rank correlation
         return model
 
-    def protected_predict(self, x, model=None):
+    def protected_predict(self, x, discrete_data=True, model=None, *_, **__):
         """Score function to be implemented by oracle subclasses, where x is
         either a batch of designs if self.is_batched is True or is a
         single design when self._is_batched is False
@@ -352,7 +352,7 @@ class TransformerOracle(TensorflowOracle):
             input_key = ("input_ids" if self.feature_extractor
                          .is_discrete(self.internal_dataset)
                          else "inputs_embeds")
-        elif isinstance(training, DiscreteDataset):
+        elif discrete_data:
             input_key = "input_ids"
         else:
             input_key = "inputs_embeds"

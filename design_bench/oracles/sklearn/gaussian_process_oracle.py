@@ -206,7 +206,7 @@ class GaussianProcessOracle(SKLearnOracle):
         # return the trained model
         return model
 
-    def protected_predict(self, x, model=None):
+    def protected_predict(self, x, model=None, *_, **__):
         """Score function to be implemented by oracle subclasses, where x is
         either a batch of designs if self.is_batched is True or is a
         single design when self._is_batched is False

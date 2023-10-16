@@ -96,7 +96,7 @@ class NASBenchOracle(ExactOracle):
 
         return True
 
-    def protected_predict(self, x):
+    def protected_predict(self, x, *_, **__):
         """Score function to be implemented by oracle subclasses, where x is
         either a batch of designs if self.is_batched is True or is a
         single design when self._is_batched is False
